@@ -27,7 +27,7 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-let list = document.getElementbyId("faultyItems");
+let faultyItems = document.getElementbyId("faultyItems");
 let pilotStatus = document.getElementbyId("pilotStatus");
 let copilotStatus = document.getElementbyId("copilotStatus");
 let fuelStatus = document.getElementbyId("fuelStatus");
@@ -42,28 +42,28 @@ let launchStatus = document.getElementbyId("launchStatus");
 } else if(validateInput(fuelLevel) == "Not a Number"|| validateInput(cargoLevel) == "Not a Number"){
     alert("Make sure to add valid information for each field")
 } else {
-    list.style.visibilty = "visible"
+    faultyItems.style.visibilty = "visible"
     pilotStatus.innerHtml = `Pilot ${pilotName} is ready`
     copilotStatus.innerHtml = `Co-Pilot ${copilotName} is ready`
 }
 if(fuelLevel < 10000){
-    list.style.visibilty = "visible"
+    faultyItems.style.visibilty = "visible"
     fuelStatus.innerHtml = "Fuel level too low for launch"
     launchStatus.innerHtml = "Shuttle Not Ready for Launch"
     launchStatus.style.color = "red"
 } else if(fuelLevel >= 10000){
-    list.style.visibilty = "visible"
+    faultyItems.style.visibilty = "visible"
     fuelStatus.innerHtml = "Fuel level high enough for launch"
     launchStatus.innerHtml = "Shuttle is ready for launch"
     launchStatus.style.color = "green"
 }
 if(cargoLevel > 10000){
-    list.style.visibilty = "visible"
+    faultyItems.style.visibilty = "visible"
     cargoStatus.innerHtml = "Cargo mass too heavy for launch"
     launchStatus.innerHtml = "Shuttle Not Ready for Launch"
     launchStatus.style.color = "red"
 } else if(cargoLevel <= 10000){
-    list.style.visibilty = "visible"
+    faultyItems.style.visibilty = "visible"
     cargoStatus.innerHtml = "Cargo mass low enough for launch"
     launchStatus.style.color = "green"
 }
@@ -71,7 +71,7 @@ if(cargoLevel > 10000){
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.jsonhttps://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
         return response.json
         });
 
@@ -79,7 +79,9 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-    let planet = 
+    let planetList = myFetch()
+    let planetIndex = Math.floor(Math.random(planetList.length))
+    return planets[planetIndex];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
