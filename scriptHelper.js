@@ -2,18 +2,18 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-   // Here is the HTML formatting for our mission target div.
-   /*
-                <h2>Mission Destination</h2>
-                <ol>
+  let missionTarget = document.getElementbyId("missionTarget") 
+  missionTarget.innerHtml = `<div>
+        <h2>Mission Destination</h2>
+               <ol>
                     <li>Name: </li>
                     <li>Diameter: </li>
                     <li>Star: ${star}</li>
                     <li>Distance from Earth: </li>
                     <li>Number of Moons: </li>
                 </ol>
-                <img src="">
-   */
+                <img src = ''> 
+                </div>`
 }
 
 function validateInput(testInput) {
@@ -54,6 +54,8 @@ if(fuelLevel < 10000){
 } else if(fuelLevel >= 10000){
     list.style.visibilty = "visible"
     fuelStatus.innerHtml = "Fuel level high enough for launch"
+    launchStatus.innerHtml = "Shuttle is ready for launch"
+    launchStatus.style.color = "green"
 }
 if(cargoLevel > 10000){
     list.style.visibilty = "visible"
@@ -63,18 +65,21 @@ if(cargoLevel > 10000){
 } else if(cargoLevel <= 10000){
     list.style.visibilty = "visible"
     cargoStatus.innerHtml = "Cargo mass low enough for launch"
+    launchStatus.style.color = "green"
 }
 }
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.jsonhttps://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+        return response.json
         });
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+    let planet = 
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
