@@ -6,11 +6,11 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
   missionTarget.innerHtml = `<div>
         <h2>Mission Destination</h2>
                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
+                    <li>Name:${name} </li>
+                    <li>Diameter: ${diameter}</li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth: ${distance}</li>
+                    <li>Number of Moons: ${moons}</li>
                 </ol>
                 <img src = ''> 
                 </div>`
@@ -80,7 +80,8 @@ async function myFetch() {
 
 function pickPlanet(planets) {
     let planetList = myFetch()
-    let planetIndex = Math.floor(Math.random(planetList.length))
+    let planetIndex = Math.floor(Math.random(planets.length))
+    //try math.random with empty parenthesis and try something else with planets.length
     return planets[planetIndex];
 }
 

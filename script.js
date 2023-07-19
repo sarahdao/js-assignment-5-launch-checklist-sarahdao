@@ -13,9 +13,17 @@ window.addEventListener("load", function() {
        console.log(listedPlanets);
    }).then(function () {
        console.log(listedPlanets);
-       window.addEventListener("click", formSubmission)
     let selectedPlanet = pickPlanet(listedPlanets);
     addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.imageUrl);
-    document.getElementById("launchForm").addEventListener("click", formSubmission);
+
+
+
+   let launchForm = document.getElementById("testForm");
+   let itemsList = document.getElementById("faultyItems");
+
+    launchForm.addEventListener("submit", function(event){
+        formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+    });
+
 })
 });
