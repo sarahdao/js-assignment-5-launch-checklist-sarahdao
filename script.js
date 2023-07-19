@@ -16,6 +16,6 @@ window.addEventListener("load", function() {
        window.addEventListener("click", formSubmission)
     let selectedPlanet = pickPlanet(listedPlanets);
     addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.imageUrl);
-    element.addEventListener("click", formSubmission);
+    document.getElementById("launchForm").addEventListener("click", formSubmission);
 })
 });
