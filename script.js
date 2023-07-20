@@ -19,11 +19,16 @@ window.addEventListener("load", function() {
 
 
    let launchForm = document.getElementById("testForm");
-   let itemsList = document.getElementById("faultyItems");
+   let list = document.getElementById("faultyItems");
+   let pilot = document.getElementById("pilotName").value;
+   let copilot = document.getElementById("copilotName").value;
+   let fuelLevel = document.getElementById("fuelLevel").value;
+   let cargoLevel = document.getElementById("cargoMass").value;
+
 
     launchForm.addEventListener("submit", function(event){
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
     });
 
-})
+});
 });
