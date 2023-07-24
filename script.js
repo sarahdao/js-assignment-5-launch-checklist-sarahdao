@@ -8,13 +8,13 @@ window.addEventListener("load", function() {
        listedPlanets = result;
        console.log(listedPlanets);
    }).then(function () {
-       console.log(listedPlanets);
+        console.log(listedPlanets);
     let selectedPlanet = pickPlanet(listedPlanets);
     addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.imageUrl);
    
     let list = document.getElementById("faultyItems");
     list.style.visibility = "hidden";
-    let form = document.querySelector("form");
+    let form = document.getElementById("testForm");
  
     form.addEventListener("submit", function(event) {
         event.preventDefault();

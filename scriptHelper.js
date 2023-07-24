@@ -2,7 +2,7 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-  let missionTarget = document.getElementbyId("missionTarget") 
+  let missionTarget = document.getElementbyId("missionTarget"); 
   missionTarget.innerHtml = `
         <h2>Mission Destination</h2>
                <ol>
@@ -74,11 +74,9 @@ async function myFetch() {
     let planetsReturned;
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
             return response.json();
-        })
-    };
-
+        });
 return planetsReturned;
-
+    }
 function pickPlanet(planets) {
     let index = Math.floor(Math.random()*planets.length);
     return planets[index];
