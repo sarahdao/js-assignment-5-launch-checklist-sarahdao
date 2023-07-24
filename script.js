@@ -1,6 +1,4 @@
 // Write your JavaScript code here!
-//const { formSubmission } = require("./scriptHelper");
-//const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
 
