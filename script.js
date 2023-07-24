@@ -1,7 +1,5 @@
 // Write your JavaScript code here!
-
-const { formSubmission } = require("./scriptHelper");
-
+//const { formSubmission } = require("./scriptHelper");
 //const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
@@ -22,15 +20,15 @@ window.addEventListener("load", function() {
  
     form.addEventListener("submit", function(event) {
         event.preventDefault();
-        let pilot = document.querySelector("input[name=pilotName]").value;
-        let copilot = document.querySelector("input[name=copilotName]").value;
+        let pilot = document.getElementById("pilotName]").value;
+        let copilot = document.getElementById("copilotName]").value;
  
-        let fuel = document.querySelector("input[name=fuelLevel]").value;
+        let fuel = document.getElementById("fuelLevel]").value;
         let fuelLevel = Number(fuel.value);
 
-        let cargo = document.querySelector("input[name=cargoMass]");
+        let cargo = document.getElementById("cargoMass]");
         let cargoLevel = Number(cargoInput.value);
- 
+
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)
     });
 
