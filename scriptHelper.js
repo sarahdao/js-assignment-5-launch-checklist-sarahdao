@@ -2,8 +2,8 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-  let missionTarget = document.getElementbyId("missionTarget"); 
-  missionTarget.innerHtml = `
+  let missionTarget = document.getElementById("missionTarget"); 
+  missionTarget.innerHTML = `
         <h2>Mission Destination</h2>
                <ol>
                     <li>Name:${name} </li>
@@ -12,7 +12,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                     <li>Distance from Earth: ${distance}</li>
                     <li>Number of Moons: ${moons}</li>
                 </ol>
-                <img src = ''> 
+                <img src = ${imageUrl}> 
                 `
 }
 
@@ -28,12 +28,12 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-let faultyItems = document.getElementbyId("faultyItems");
-let pilotStatus = document.getElementbyId("pilotStatus");
-let copilotStatus = document.getElementbyId("copilotStatus");
-let fuelStatus = document.getElementbyId("fuelStatus");
-let cargoStatus = document.getElementbyId("cargoStatus");
-let launchStatus = document.getElementbyId("launchStatus");
+let faultyItems = document.getElementById("faultyItems");
+let pilotStatus = document.getElementById("pilotStatus");
+let copilotStatus = document.getElementById("copilotStatus");
+let fuelStatus = document.getElementById("fuelStatus");
+let cargoStatus = document.getElementById("cargoStatus");
+let launchStatus = document.getElementById("launchStatus");
    if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty"
 || validateInput(fuelLevel) === "Empty"|| validateInput(cargoLevel) === "Empty"){
     alert("All fields are required")
