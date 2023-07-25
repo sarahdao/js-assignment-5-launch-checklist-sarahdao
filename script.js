@@ -10,9 +10,9 @@ window.addEventListener("load", function() {
    }).then(function () {
         console.log(listedPlanets);
     let selectedPlanet = pickPlanet(listedPlanets);
-    addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.imageUrl);
+    addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image);
    
-    let list = document.getElementById("faultyItems");
+   let list = document.getElementById("faultyItems");
    let form = document.querySelector("form");
 
    form.addEventListener("submit", function(event) {
